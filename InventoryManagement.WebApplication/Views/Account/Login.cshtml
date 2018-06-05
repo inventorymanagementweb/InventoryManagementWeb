@@ -1,0 +1,80 @@
+﻿@using System.Web.Mvc.Html
+@using InventoryManagement.Commons
+@model InventoryManagement.Identity.Model.LogIn
+
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Description = "LogIn page";
+    ViewBag.Author = "Thien Nguyen";
+}
+
+<!--=== Content Part ===-->
+<div class="container content valign__middle">
+    <!--Reg Block-->
+    <section id="loginForm">
+        @using (Html.BeginForm("LogIn", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+            @Html.AntiForgeryToken()
+            <div class="reg-block">
+                <div class="reg-block-header">
+                    <h2>Log In</h2>
+                    <ul class="social-icons text-center">
+                        <li><a class="rounded-x social_facebook" data-original-title="Facebook" href="#"></a></li>
+                        <li><a class="rounded-x social_twitter" data-original-title="Twitter" href="#"></a></li>
+                        <li><a class="rounded-x social_googleplus" data-original-title="Google Plus" href="#"></a></li>
+                        <li><a class="rounded-x social_linkedin" data-original-title="Linkedin" href="#"></a></li>
+                    </ul>
+                    @if (ViewData.ModelState.Keys.Contains(Constants.EmailNotConfirmErrorKey))
+                    {
+                        <p>Don't have confirm email? Click @Html.ActionLink("Confirm Email", "ResendConfirmEmail") to resend your confirm email.</p>
+                    }
+                    else if (ViewData.ModelState.Keys.Contains(Constants.UsernamePassIncorrectErrorKey))
+                    {
+                        <p>Don't remember password? Click @Html.ActionLink("ForgotPassword", "ForgotPassword") to reset password.</p>
+                    }
+                </div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", placeholder = "Username", maxlength = 128 } })
+                </div>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Password", maxlength = 128 } })
+                </div>
+                <hr>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    @Html.Partial("_ValidationSummary", ViewData.ModelState)
+                }
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <button type="submit" class="btn-u btn-block">Log In</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </section>
+    <!--End Reg Block-->
+</div><!--/container-->
+<!--=== End Content Part ===-->
+<!--=== Sticky Footer ===-->
+<div class="container sticky-footer">
+    <p class="copyright-space">
+        2017 &copy; All Rights Reserved.
+    </p>
+</div>
+<!--=== End Sticky Footer ===-->
+<script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+</script>
+<script type="text/javascript">
+        $.backstretch([
+            "../Content/assets/img/bg/19.jpg",
+            "../Content/assets/img/bg/18.jpg"
+        ], {
+            fade: 1000,
+            duration: 7000
+        });
+</script>

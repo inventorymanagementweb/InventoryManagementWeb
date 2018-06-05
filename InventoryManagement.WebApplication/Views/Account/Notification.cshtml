@@ -1,0 +1,48 @@
+﻿@model InventoryManagement.Identity.Model.UserNotification
+
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+    ViewBag.Description = "Notification page";
+    ViewBag.Author = "Thien Nguyen";
+}
+
+
+<!--=== Confirm Email Success V4 ===-->
+<div class="container content valign__middle">
+    <!--Error Block-->
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="error-v4">
+                <a href="#"><img src="~/Content/assets/img/logo2-default.png" alt=""></a>
+                <h1>@Html.DisplayFor(m => m.Subject)</h1>
+                <span class="sorry">@Html.DisplayFor(m => m.Message)</span>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <a class="btn-u btn-brd btn-u-light" href="@Model.NavigateButtonLink">@Html.DisplayFor(m => m.NavigateButtonTitle)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/container-->
+<!--End Confirm Email Success Block-->
+<!--=== Sticky Footer ===-->
+<div class="container sticky-footer">
+    <p class="copyright-space">
+        2017 &copy; All Rights Reserved.
+    </p>
+</div>
+<!--=== End Sticky Footer ===-->
+<!-- JS Page Level -->
+<script type="text/javascript" src="~/Content/assets/js/plugins/style-switcher.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        StyleSwitcher.initStyleSwitcher();
+    });
+</script>
+<script type="text/javascript">
+    $.backstretch([
+        "../Content/assets/img/blur/img2.jpg"
+    ])
+</script>

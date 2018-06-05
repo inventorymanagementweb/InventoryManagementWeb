@@ -1,0 +1,15 @@
+/.vs
+/packages
+/InventoryManagement.Commons/obj
+/InventoryManagement.Commons/bin
+/*.user
+/InventoryManagement.WebApplication/obj
+/InventoryManagement.WebApplication/bin
+/InventoryManagement.Services/obj
+/InventoryManagement.Services/bin
+/InventoryManagement.Repositories/obj
+/InventoryManagement.Repositories/bin
+/InventoryManagement.Models/obj
+/InventoryManagement.Models/bin
+/InventoryManagement.Identity/obj
+/InventoryManagement.Identity/bin
